@@ -1,3 +1,4 @@
+// Package number provides lightweight reflection on numeric types.
 package number
 
 import "unsafe"
