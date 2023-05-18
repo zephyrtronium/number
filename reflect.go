@@ -88,22 +88,17 @@ const (
 	ordflag    = 0b1_0_0_000
 )
 
+var bitmap = [8]uint8{
+	0b001: 8,
+	0b010: 16,
+	0b011: 32,
+	0b100: 64,
+	0b101: 128,
+}
+
 // Bits returns the size of the type in bits.
 func (p packed) Bits() int {
-	switch p & sizeflags {
-	case 0b001:
-		return 8
-	case 0b010:
-		return 16
-	case 0b011:
-		return 32
-	case 0b100:
-		return 64
-	case 0b101:
-		return 128
-	default:
-		return 0
-	}
+	return int(bitmap[p&sizeflags])
 }
 
 // Unsigned returns whether the type is unsigned.

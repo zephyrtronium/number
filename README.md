@@ -10,9 +10,9 @@ goos: linux
 goarch: amd64
 pkg: github.com/zephyrtronium/number
 cpu: Intel(R) Core(TM) i9-10885H CPU @ 2.40GHz
-BenchmarkNumber-16              1000000000               1.119 ns/op
-BenchmarkNumberAny-16           1000000000               1.131 ns/op
-BenchmarkReflect-16             404040951                2.908 ns/op
+BenchmarkNumber-16              1000000000               0.9295 ns/op
+BenchmarkNumberAny-16           1000000000               0.9223 ns/op
+BenchmarkReflect-16             383663199                3.117 ns/op
 PASS
-ok      github.com/zephyrtronium/number 3.967s
+ok      github.com/zephyrtronium/number 3.572s
 ```
