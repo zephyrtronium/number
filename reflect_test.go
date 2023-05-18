@@ -107,3 +107,18 @@ func TestTypeOfAlloc(t *testing.T) {
 		t.Errorf("too many allocs: %v", n)
 	}
 }
+
+var BitsSink int
+
+func BenchmarkNumber(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		BitsSink = Reflect[int]().Bits()
+	}
+}
+
+func BenchmarkReflect(b *testing.B) {
+	var z int
+	for i := 0; i < b.N; i++ {
+		BitsSink = reflect.TypeOf(z).Bits()
+	}
+}
