@@ -116,6 +116,13 @@ func BenchmarkNumber(b *testing.B) {
 	}
 }
 
+func BenchmarkNumberAny(b *testing.B) {
+	var z int
+	for i := 0; i < b.N; i++ {
+		BitsSink = TypeOfAny(z).Bits()
+	}
+}
+
 func BenchmarkReflect(b *testing.B) {
 	var z int
 	for i := 0; i < b.N; i++ {

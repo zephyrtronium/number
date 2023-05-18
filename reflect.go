@@ -18,6 +18,16 @@ func TypeOf[T ~int | ~int8 | ~int16 | ~int32 | ~int64 | ~uint | ~uint8 | ~uint16
 	return Type{types[ekind(x)]}
 }
 
+// TypeOfAny gets a Type for an arbitrary value. Panics if the dynamic type of
+// x is not numeric.
+func TypeOfAny(x any) Type {
+	r := types[ekind(x)]
+	if r == 0 {
+		panic("number: non-numeric type")
+	}
+	return Type{r}
+}
+
 // ekind pulls the reflect.Kind from an empty interface directly.
 func ekind(x any) uint8 {
 	// Partial definition of internal/abi.Type, up to the reflect.Kind.
